@@ -8,6 +8,7 @@
     <![CDATA[
     <script src="//hangoutsapi.talkgadget.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
     <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.1"></script>
+    <script src=""https://github.com/chaitanya5656589/hangout-integration/blob/master/gadgetscript.js></script>
 	<script type="java/script" src="https://apis.google.com/js/client.js?onload=onClientReady"></script>
 	<div id="participantsDiv"></div>
 

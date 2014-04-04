@@ -12,15 +12,7 @@
 	<script type="java/script" src="https://apis.google.com/js/client.js?onload=onClientReady"></script>
 	<div id="participantsDiv"></div>
 
-	function init() {
-  // When API is ready...                                                        
-  gapi.hangout.onApiReady.add(
-      function(eventObj) {
-        if (eventObj.isApiReady) 
-		{
-          document.getElementById('showParticipants').style.visibility = 'visible';
-        }
-      });
+	
 }
 
 

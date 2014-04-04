@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="My First Hangout">
+    <Require feature="rpc"/>   //it will allow communication between your app and hangout.
+    <Require feature="views"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+    <script src="//hangoutsapi.talkgadget.google.com/talkgadget/apps/gadgets/js/rpc.js"></script>
+    <script src="//hangoutsapi.talkgadget.google.com/hangouts/api/hangout.js?v=1.1"></script>
+	<script type="java/script" src="https://apis.google.com/js/client.js?onload=onClientReady"></script>
+	<div id="participantsDiv"></div>
+
+	function init() {
+  // When API is ready...                                                        
+  gapi.hangout.onApiReady.add(
+      function(eventObj) {
+        if (eventObj.isApiReady) 
+		{
+          document.getElementById('showParticipants').style.visibility = 'visible';
+        }
+      });
+}
+
+
+      
+	  
+    ]]>
+  </Content>
+</Module>

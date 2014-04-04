@@ -1,5 +1,5 @@
 <Module>
-<ModulePrefs title="Proxied Hangout" height="200" width="550">
+<ModulePrefs title="MySample Hangout" height="200" width="550">
 <Require feature="dynamic-height"/>
 <Require feature="rpc"/>
 <Require feature="views"/>
@@ -7,68 +7,17 @@
 <Content type="html">
 <![CDATA[
 <!DOCTYPE html> 
-<script> 
-var token = "NONE"; 
-function relayMessages() 
-{ 
-var sendToId; 
-if (this['f'] == "..") 
-{  
-	sendToId = "googleplus_target"; 
-} 
-else 
-{ 
-	sendToId = ".."; 
-} 
-var rpcArgs = [ sendToId].concat(this["a"]);  
-gadgets.rpc.call.apply(gadgets.rpc, rpcArgs); 
+<h1>Hangout Demo</h1>
+      <div id="container"></div>
+      <button id="clickme">Click Me</button> <span id="count">0</span>
 
-} 
-function createiframe()
-{ 
-	var ifrm = document.createElement("IFRAME"); 
-	var gd = gadgets.views.getParams()['appData']; 
-	var ifrm_id = "googleplus_target"; 
-	ifrm.setAttribute("src", "https://github.com/chaitanya5656589/hangout-integration/blob/master/helpdesk-sample.html?parent=" + encodeURIComponent(window.location.href) + "&token=" + encodeURIComponent(token) + "&gd=" + encodeURIComponent(gd)); ifrm.style.width = 100+"%"; 
-	ifrm.style.height = 1000+"px" ifrm.setAttribute("id", ifrm_id); 
-	ifrm.setAttribute("name", ifrm_id); 
-	ifrm.setAttribute("scrolling","yes"); 
-	ifrm.setAttribute("frameborder","0"); 
-	ifrm.setAttribute("border","0"); 
-	document.body.appendChild(ifrm); 
-	gadgets.rpc.setupReceiver(ifrm_id);
-}
- 
-function handleAuthResult(authResult) 
-{ 
-	var authorizeButton = document.getElementById('authorize-button'); 
-	var tokenButton = document.getElementById('token-button'); 
-	if (authResult) 
-	{ 
-		token = gapi.auth.getToken().access_token; 
-		createiframe(); 
-	} 
-	else 
-	{ 
-		console.log("FAILED AUTH RESULT: " + authResult); 
-	} 
-} 
-var scopes = ['https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/hangout.av', 'https://www.googleapis.com/auth/hangout.participants']; 
-function checkAuth(isImmediate) 
-{ 
-	console.log('checking auth');
-	gapi.auth.authorize({client_id: null, scope: scopes, immediate: isImmediate}, handleAuthResult); 
-} 
-function onClientReady() 
-{ 
-	console.log("On client ready..."); 
-	gadgets.rpc.registerDefault(relayMessages); 
-	window.setTimeout(function() 
-	{ 	
-		checkAuth(true) 
-	}, 1); 
-} 
-</script> 
+<script>
+        function onClientReady() {
+            console.log("test");
+        }
+    </script>
+
+
 <script src="https://apis.google.com/js/client.js?onload=onClientReady"></script>
 ]]>
 </Content>
